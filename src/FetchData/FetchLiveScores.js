@@ -5,6 +5,7 @@ export default function FetchLiveScores() {
     const [ allLiveMatches , setAllLiveMatches ] = useState([])
     useEffect(()=>{
         fetchLiveScores()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     function fetchLiveScores(){
