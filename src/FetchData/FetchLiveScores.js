@@ -32,22 +32,22 @@ export default function FetchLiveScores() {
 
             let tempObj = {
                 key:'',
-                homeTeam : '',
-                awayTeam : '',
+                homeTeam : {},
+                awayTeam : {},
                 score : '',
                 leagueName : '',
                 venue: '',
                 timestamp:''
             };
             tempObj.key = i.fixture.id
-            tempObj.homeTeam = i.teams.home.name
-            tempObj.awayTeam = i.teams.away.name
+            tempObj.homeTeam = i.teams.home
+            tempObj.awayTeam = i.teams.away
             tempObj.score = `${i.goals.home} - ${i.goals.away}`
             tempObj.leagueName = `${i.league.country} - ${i.league.name}`
             tempObj.venue = i.fixture.venue.name
             tempObj.timestamp = i.fixture.status.elapsed
 
-            console.log(tempObj)
+            // console.log(tempObj)
             tempArray.push(tempObj)
         }
         // console.log(tempArray)
