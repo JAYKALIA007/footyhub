@@ -58,7 +58,7 @@ export default function FetchLiveScores() {
         <div>
             <h1 className="text-3xl font-bold underline" > Live Scores Dashboard </h1>
             <div className = "grid grid-cols-2 gap-2 place-content-stretch h-48">
-                {allLiveMatches.length === 0 ? 'loading' :   (allLiveMatches.map(match=>{
+                {allLiveMatches.length === 0 ? 'No matches to show' :   (allLiveMatches.map(match=>{
                     return(
                         <MatchCard key={match.key} home={match.homeTeam} away={match.awayTeam} score={match.score} league={match.leagueName} venue={match.venue} timestamp={match.timestamp}  />
                     )
