@@ -1,5 +1,5 @@
 import './App.css';
-import FetchLiveScores from './FetchData/FetchLiveScores';
+import FetchLiveScores from './Components/FetchLiveScores';
 function App() {
   return (
     <div className="App">

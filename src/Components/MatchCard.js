@@ -1,10 +1,15 @@
 import axios from "axios";
 import {useState } from 'react'
-import FetchTeamInfo from "../FetchData/FetchTeamInfo";
+import DisplayTeamInfo from "./DisplayTeamInfo";
 // import FetchTeamInfo from '../FetchData/FetchTeamInfo'
 
 export default function MatchCard( {home , away , score , league , venue , timestamp } ){
     const [ teamInfo , setTeamInfo ] = useState(null)
+    const [showModal , setShowModal] = useState(false)
+
+    function toggleShowModal(boolean_value){
+        setShowModal(boolean_value)
+    }
 
     function fetchTeamInfo(teamId){
         console.log(teamId);
@@ -22,6 +27,7 @@ export default function MatchCard( {home , away , score , league , venue , times
           axios.request(options).then(function (response) {
 
             setTeamInfo(response.data.response[0])
+            setShowModal(true)
             // console.log(teamInfo)
           }).catch(function (error) {
             console.error(error);
@@ -34,7 +40,7 @@ export default function MatchCard( {home , away , score , league , venue , times
             <p>{league}</p>
             {/* <p>{venue}</p> */}
             {/* {console.log(teamInfo)} */}
-            {teamInfo === null ?  '' : <FetchTeamInfo teamInfo={teamInfo}  /> }
+            {teamInfo === null ?  '' : <DisplayTeamInfo teamInfo={teamInfo} showModal={showModal} toggleShowModal={toggleShowModal} /> }
         </div>
     )
 }
