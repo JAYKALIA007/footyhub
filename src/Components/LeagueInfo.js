@@ -8,6 +8,7 @@ export default function LeagueInfo(){
     const [ leagueInfo , setLeagueInfo ] = useState(null)
     useEffect(()=>{
         fetchLeagueInfo(leagueId)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     function fetchLeagueInfo(leagueId){

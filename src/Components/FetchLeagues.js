@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import DisplayLeagues from './DisplayLeagues'
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom";
 
 
@@ -15,6 +15,7 @@ export default function FetchLeagues(){
 
     useEffect(()=>{
         fetchLeagues()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
     function fetchLeagues(){
         const options = {

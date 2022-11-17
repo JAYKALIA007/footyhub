@@ -14,6 +14,3 @@ export default function DisplayLeagues( { leagues } ){
         </div>
     )
 }
-
-
-//  <Link to={`/apply/jobId=${id}`} >
