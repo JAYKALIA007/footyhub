@@ -3,10 +3,11 @@ import { useState , useEffect } from 'react'
 import MatchCard from './MatchCard'
 export default function FetchLiveScores() {
     const [ allLiveMatches , setAllLiveMatches ] = useState([])
+    const [ toggleFetchAgain , setToggleFetchAgain ] = useState(false)
     useEffect(()=>{
         fetchLiveScores()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[])
+    },[toggleFetchAgain])
 
     function fetchLiveScores(){
         const options = {
@@ -52,12 +53,14 @@ export default function FetchLiveScores() {
         }
         // console.log(tempArray)
         setAllLiveMatches(tempArray)
-        
     }
     return(
-        <div>
-            <h1 className="text-3xl font-bold underline" > Live Scores Dashboard </h1>
-            <div className = "grid grid-cols-2 gap-2 place-content-stretch h-48">
+        <div className=" border-2 border-black m-2" >
+            <h2 className="text-xl font-bold underline " > Live Scores Dashboard </h2>
+            <div className="flex justify-end mr-4 " >
+                <p className=" bg-slate-400 p-1 text-xs cursor-pointer inline " onClick={()=>{setToggleFetchAgain(!toggleFetchAgain)}} >Refresh Scores</p>
+            </div>
+            <div className = "grid grid-cols-2 gap-2 place-content-stretch">
                 {allLiveMatches.length === 0 ? 'No matches to show' :   (allLiveMatches.map(match=>{
                     return(
                         <MatchCard key={match.key} home={match.homeTeam} away={match.awayTeam} score={match.score} league={match.leagueName} venue={match.venue} timestamp={match.timestamp}  />

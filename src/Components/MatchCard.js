@@ -12,7 +12,7 @@ export default function MatchCard( {home , away , score , league , venue , times
     }
 
     function fetchTeamInfo(teamId){
-        console.log(teamId);
+        // console.log(teamId);
         // <FetchTeamInfo  teamId={teamId} />
         const options = {
             method: 'GET',
